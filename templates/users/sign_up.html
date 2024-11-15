@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block main %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <div class="container">
+        <div class="row mt-5 pt-3">
+            <div class="col-md-4 offset-md-7">
+                <div class="card my-3 shadow">
+                    <div class="card-body">
+                        <h4>Sign Up Page</h4>
+                        <hr>
+                       <form method="post">
+                            {% csrf_token %}
+                            {{forms|crispy }}
+                            <input type="submit" class="btn btn-primary btn-block w-100" value="Sign Up">
+                       </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
